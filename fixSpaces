@@ -1,0 +1,1 @@
+npx prettier --write "./**/*.{js,ts,json,html,css}" --use-tabs --single-quote
