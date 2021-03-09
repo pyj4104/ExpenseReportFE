@@ -15,10 +15,13 @@
 			<button type="submit">Submit</button>
 		</form>
 		<div>
-			<span
-				>Don't have an account?
+			<span>
+				<p>Don't have an account?</p>
 				<a routerLink="/signUp">Sign Up</a>
 			</span>
 		</div>
+	</div>
+	<div *ngIf="message">
+		<p>{{ message }}</p>
 	</div>
 </body>
