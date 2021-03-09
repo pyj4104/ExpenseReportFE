@@ -11,14 +11,14 @@ import { ResponseCodeHandler } from '@helpers/response-code-handler/response-cod
 @Injectable({
 	providedIn: 'root',
 })
-export class LogInService {
+export class SecurityCodeServices {
 	constructor(private http: HttpClient) {}
 
-	requestLogIn(userEmail: string): Observable<any> {
+	sendSecCode(secCode: string): Observable<any> {
 		const headers = { 'Content-Type': 'application/json' };
-		const data = { email: userEmail };
+		const data = { 'secCode': secCode };
 		return this.http
-			.post<any>('http://localhost:6543/api/logIn', data, {
+			.post<any>('http://localhost:6543/api/secCheck', data, {
 				headers: headers,
 				observe: 'response',
 			})

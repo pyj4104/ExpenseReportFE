@@ -16,12 +16,7 @@ import { SecurityCodeComponent } from './components/security-code/security-code.
 		SignUpComponent,
 		SecurityCodeComponent,
 	],
-	imports: [
-		BrowserModule,
-		AppRoutingModule,
-		FormsModule,
-		HttpClientModule,
-	],
+	imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
 	providers: [],
 	bootstrap: [AppComponent],
 })

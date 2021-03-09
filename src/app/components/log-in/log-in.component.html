@@ -1,27 +1,25 @@
-<body>
+<div>
+	<h1>Welcome to the KW Expense Report System!</h1>
+</div>
+<div>
+	<form (submit)="submit()">
+		<label for="userEmail">Email: </label>
+		<input
+			id="userEmail"
+			[(ngModel)]="userEmail"
+			placeholder="User email for logging in"
+			name="email"
+		/>
+		<br />
+		<button type="submit">Submit</button>
+	</form>
 	<div>
-		<h1>Welcome to the KW Expense Report System!</h1>
+		<span>
+			<p>Don't have an account?</p>
+			<a routerLink="/signUp">Sign Up</a>
+		</span>
 	</div>
-	<div>
-		<form (submit)="submit()">
-			<label for="userEmail">Email: </label>
-			<input
-				id="userEmail"
-				[(ngModel)]="userEmail"
-				placeholder="User email for logging in"
-				name="email"
-			/>
-			<br />
-			<button type="submit">Submit</button>
-		</form>
-		<div>
-			<span>
-				<p>Don't have an account?</p>
-				<a routerLink="/signUp">Sign Up</a>
-			</span>
-		</div>
-	</div>
-	<div *ngIf="message">
-		<p>{{ message }}</p>
-	</div>
-</body>
+</div>
+<div *ngIf="message">
+	<p>{{ message }}</p>
+</div>

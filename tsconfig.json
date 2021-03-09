@@ -18,7 +18,8 @@
 			"@logics/*": ["src/app/logics/*"],
 			"@services/*": ["src/app/services/*"],
 			"@modules/*": ["src/app/modules/*"],
-			"@components/*": ["src/app/components/*"]
+			"@components/*": ["src/app/components/*"],
+			"@helpers/*": ["src/app/helpers/*"]
 		}
 	},
 	"angularCompilerOptions": {

@@ -1,1 +1,19 @@
-<p>security-code works!</p>
+<div>
+	<h1>Please type in the 6 digit security code</h1>
+</div>
+<div>
+	<form (submit)="submit()">
+		<label for="secCode">Security Code: </label>
+		<input
+			id="secCode"
+			[(ngModel)]="secCode"
+			placeholder="Security code for logging in"
+			name="secCode"
+		/>
+		<br />
+		<button type="submit">Submit</button>
+	</form>
+</div>
+<div *ngIf="message">
+	<p>{{ message }}</p>
+</div>
