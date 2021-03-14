@@ -18,7 +18,7 @@ export class LogInService {
 		const headers = { 'Content-Type': 'application/json' };
 		const data = { email: userEmail };
 		return this.http
-			.post<any>('http://localhost:6543/api/logIn', data, {
+			.post<any>('/api/logIn', data, {
 				headers: headers,
 				observe: 'response',
 			})
@@ -26,5 +26,18 @@ export class LogInService {
 				map(ResponseCodeHandler.success),
 				catchError(ResponseCodeHandler.handleError)
 			);
+	}
+
+	isLoggedIn(): Observable<any> {
+		const headers = { 'Content-Type': 'application/json' };
+		return this.http
+			.get<any>('/api/logIn',
+			{
+				observe: 'response'
+		})
+		.pipe(
+			map(ResponseCodeHandler.success),
+			catchError(ResponseCodeHandler.handleError)
+		);
 	}
 }

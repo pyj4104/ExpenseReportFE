@@ -16,9 +16,9 @@ export class SecurityCodeServices {
 
 	sendSecCode(secCode: string): Observable<any> {
 		const headers = { 'Content-Type': 'application/json' };
-		const data = { 'secCode': secCode };
+		const data = { secCode: secCode };
 		return this.http
-			.post<any>('http://localhost:6543/api/secCheck', data, {
+			.post<any>('/api/secCheck', data, {
 				headers: headers,
 				observe: 'response',
 			})

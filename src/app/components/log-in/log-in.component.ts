@@ -24,7 +24,7 @@ export class LogInComponent implements OnInit {
 	setMessage(responseCode: number): void {
 		console.log(responseCode);
 		if (responseCode == 200) {
-			this.router.navigateByUrl('/secCode');
+			this.router.navigate(['/secCode']);
 		} else if (responseCode == 422) {
 			this.message = 'The email entered is not a vaild format.';
 		} else if (responseCode == 403) {

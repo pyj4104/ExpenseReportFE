@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SecurityCodeServices } from '@services/security-code/security-code-services'
+import { SecurityCodeServices } from '@services/security-code/security-code-services';
 
 @Component({
 	selector: 'app-security-code',
@@ -10,8 +10,12 @@ import { SecurityCodeServices } from '@services/security-code/security-code-serv
 export class SecurityCodeComponent implements OnInit {
 	secCode?: string;
 	message?: string;
+	public sessionStorage = sessionStorage;
 
-	constructor(private secService: SecurityCodeServices, private router: Router) {}
+	constructor(
+		private secService: SecurityCodeServices,
+		private router: Router
+	) {}
 
 	ngOnInit(): void {}
 
@@ -23,12 +27,14 @@ export class SecurityCodeComponent implements OnInit {
 
 	setMessage(responseCode: number): void {
 		console.log(responseCode);
+		console.log(sessionStorage.getItem("Authorization"));
 		if (responseCode == 200) {
-			this.message = 'It works!';
+			this.router.navigate(['/mainPage']);
 		} else if (responseCode == 422) {
-			this.message = 'The email entered is not a vaild format.';
+			this.message = 'The security code entered is not a vaild format.';
 		} else if (responseCode == 403) {
-			this.message = 'The email is either not registered or unapproved.';
+			this.message =
+				'The security code either expired or does not exist.';
 		}
 	}
 }
