@@ -21,6 +21,9 @@
 				},
 				"@schematics/angular:module": {
 					"lintFix": true
+				},
+				"@schematics/angular:class": {
+					"lintFix": true
 				}
 			},
 			"root": "",
@@ -78,7 +81,7 @@
 					},
 					"configurations": {
 						"production": {
-							"browserTarget": "ExpenseReportSystemFE:build:production",
+							"browserTarget": "ExpenseReportSystemFE:build:production"
 						}
 					}
 				},

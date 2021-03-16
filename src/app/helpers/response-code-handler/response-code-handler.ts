@@ -9,4 +9,8 @@ export class ResponseCodeHandler {
 	public static handleError(error: HttpErrorResponse) {
 		return of(error.status);
 	}
+
+	public static handleErrorComplex(error: HttpErrorResponse) {
+		return of([false, error.status]);
+	}
 }

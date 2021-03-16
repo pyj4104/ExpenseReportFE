@@ -31,13 +31,12 @@ export class LogInService {
 	isLoggedIn(): Observable<any> {
 		const headers = { 'Content-Type': 'application/json' };
 		return this.http
-			.get<any>('/api/logIn',
-			{
-				observe: 'response'
-		})
-		.pipe(
-			map(ResponseCodeHandler.success),
-			catchError(ResponseCodeHandler.handleError)
-		);
+			.get<any>('/api/logIn', {
+				observe: 'response',
+			})
+			.pipe(
+				map(ResponseCodeHandler.success),
+				catchError(ResponseCodeHandler.handleError)
+			);
 	}
 }

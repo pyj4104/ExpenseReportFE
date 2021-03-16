@@ -7,24 +7,31 @@ import {
 	HttpResponse,
 } from '@angular/common/http';
 import { ResponseCodeHandler } from '@helpers/response-code-handler/response-code-handler';
+import { Ministry } from '@interfaces/ministry';
+import { ExpenseReport } from '@interfaces/expense-report';
 
 @Injectable({
 	providedIn: 'root',
 })
-export class SecurityCodeServices {
+export class ExpenseReportsService {
 	constructor(private http: HttpClient) {}
 
-	sendSecCode(secCode: string): Observable<any> {
+	submitReport(data: ExpenseReport): Observable<any> {
 		const headers = { 'Content-Type': 'application/json' };
-		const data = { secCode: secCode };
 		return this.http
-			.post<any>('/api/secCheck', data, {
+			.post<any>('/api/expenseReport', data, {
 				headers: headers,
 				observe: 'response',
 			})
 			.pipe(
-				map(ResponseCodeHandler.success),
-				catchError(ResponseCodeHandler.handleError)
+				map((res: HttpResponse<any>) => {
+					return [true, res];
+				}),
+				catchError(ResponseCodeHandler.handleErrorComplex)
 			);
+	}
+
+	getMinistries(): Observable<Ministry[]> {
+		return this.http.get<Ministry[]>('/api/ministries');
 	}
 }

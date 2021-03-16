@@ -20,7 +20,8 @@
 			"@modules/*": ["src/app/modules/*"],
 			"@components/*": ["src/app/components/*"],
 			"@helpers/*": ["src/app/helpers/*"],
-			"@interfaces/*": ["src/app/interfaces/*"]
+			"@interfaces/*": ["src/app/interfaces/*"],
+			"@classes/*": ["src/app/classes/*"]
 		}
 	},
 	"angularCompilerOptions": {

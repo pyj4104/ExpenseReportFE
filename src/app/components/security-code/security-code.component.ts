@@ -27,7 +27,7 @@ export class SecurityCodeComponent implements OnInit {
 
 	setMessage(responseCode: number): void {
 		console.log(responseCode);
-		console.log(sessionStorage.getItem("Authorization"));
+		console.log(sessionStorage.getItem('Authorization'));
 		if (responseCode == 200) {
 			this.router.navigate(['/mainPage']);
 		} else if (responseCode == 422) {

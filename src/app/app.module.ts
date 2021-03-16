@@ -10,6 +10,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SecurityCodeComponent } from './components/security-code/security-code.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { ReportExpensesComponent } from './components/report-expenses/report-expenses.component';
+import { SubmitCategoriesComponent } from './components/submit-categories/submit-categories/submit-categories.component';
 
 @NgModule({
 	declarations: [
@@ -19,6 +20,7 @@ import { ReportExpensesComponent } from './components/report-expenses/report-exp
 		SecurityCodeComponent,
 		MainPageComponent,
 		ReportExpensesComponent,
+		SubmitCategoriesComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
 	providers: [],

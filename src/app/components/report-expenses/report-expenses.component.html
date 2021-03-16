@@ -1,1 +1,58 @@
 <p>report-expenses works!</p>
+<form (submit)="submit()" name="report">
+	<label for="mID">Ministry: </label>
+	<select
+		[(ngModel)]="expenseReport.ministryID"
+		placeholder="Select Ministry"
+		name="mID"
+		id="mID"
+	>
+		<option hidden [ngValue]="null">Choose a ministry</option>
+		<option *ngFor="let ministry of ministries" [ngValue]="ministry.id">
+			{{ ministry.ministry }}
+		</option>
+	</select>
+	<br />
+	<label for="lastKorName">성: </label>
+	<input
+		id="lastKorName"
+		[(ngModel)]="expenseReport.lastKorName"
+		placeholder="성씨"
+		name="성"
+	/>
+	<br />
+	<label for="firstKorName">이름: </label>
+	<input
+		id="firstKorName"
+		[(ngModel)]="expenseReport.firstKorName"
+		placeholder="이름"
+		name="이름"
+	/>
+	<br />
+	<label for="firstLegalName">First Name: </label>
+	<input
+		id="firstLegalName"
+		[(ngModel)]="expenseReport.firstLegalName"
+		placeholder="First Name"
+		name="fName"
+	/>
+	<br />
+	<label for="lastLegalName">Last Name: </label>
+	<input
+		id="lastLegalName"
+		[(ngModel)]="expenseReport.lastLegalName"
+		placeholder="Last Name"
+		name="lName"
+	/>
+	<br />
+	<label for="amount">금액: </label>
+	<input
+		id="amount"
+		[(ngModel)]="expenseReport.amount"
+		placeholder="금액"
+		name="amount"
+	/>
+	<br />
+	<button type="submit">Submit</button>
+	<br />
+</form>

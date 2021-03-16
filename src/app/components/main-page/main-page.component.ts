@@ -17,13 +17,11 @@ export class MainPageComponent implements OnInit {
 		this.loggedIn = false;
 		this.logInService
 			.isLoggedIn()
-			.subscribe(
-				(responseCode) => this.showElem(responseCode)
-			);
+			.subscribe((responseCode) => this.showElem(responseCode));
 	}
 
 	showElem(responseCode: number): void {
-		this.sessionToken = sessionStorage.getItem("Authorization")
+		this.sessionToken = sessionStorage.getItem('Authorization');
 		if (responseCode == 200) {
 			this.loggedIn = true;
 		} else {
