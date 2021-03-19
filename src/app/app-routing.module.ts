@@ -5,6 +5,8 @@ import { SignUpComponent } from '@components/sign-up/sign-up.component';
 import { SecurityCodeComponent } from '@components/security-code/security-code.component';
 import { MainPageComponent } from '@components/main-page/main-page.component';
 import { ReportExpensesComponent } from '@components/report-expenses/report-expenses.component';
+import { SubmitCategoriesComponent } from '@components/submit-categories/submit-categories.component';
+import { SubmitDetailedReportComponent } from '@components/submit-detailed-report/submit-detailed-report.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/mainPage', pathMatch: 'full' },
@@ -13,6 +15,8 @@ const routes: Routes = [
 	{ path: 'signUp', component: SignUpComponent },
 	{ path: 'mainPage', component: MainPageComponent },
 	{ path: 'reportExpenses', component: ReportExpensesComponent },
+	{ path: 'submitCategories', component: SubmitCategoriesComponent },
+	{ path: 'submitDetailedReport', component: SubmitDetailedReportComponent },
 ];
 
 @NgModule({

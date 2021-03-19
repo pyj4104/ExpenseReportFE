@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router';
 import { ExpenseReportsService } from '@services/expense-reports/expense-reports.service';
 import { Ministry } from '@interfaces/ministry';
 import { ExpenseReport } from '@interfaces/expense-report';
@@ -12,15 +13,16 @@ export class ReportExpensesComponent implements OnInit {
 	public ministries: Ministry[];
 	public expenseReport: ExpenseReport;
 	public selectedMinistry: number;
-	public hi: number;
 
-	constructor(private expenseReportsService: ExpenseReportsService) {}
+	constructor(
+		private router: Router,
+		private expenseReportsService: ExpenseReportsService
+	) {}
 
 	ngOnInit(): void {
 		this.expenseReport = { ministryID: null };
 		this.expenseReportsService.getMinistries().subscribe((ministries) => {
 			this.ministries = ministries;
-			console.log(ministries);
 		});
 	}
 
@@ -28,11 +30,16 @@ export class ReportExpensesComponent implements OnInit {
 		this.expenseReportsService
 			.submitReport(this.expenseReport)
 			.subscribe((result) => {
-				console.log(result);
 				if (result[0]) {
-					console.log(result[1].body.id);
+					const navigationExtras: NavigationExtras = {
+						state: { formID: result[1].id },
+					};
+					this.router.navigate(
+						['/submitCategories'],
+						navigationExtras
+					);
 				} else {
-					console.log(result[1]);
+					alert('Please check input format!');
 				}
 			});
 	}

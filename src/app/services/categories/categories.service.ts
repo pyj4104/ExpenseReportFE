@@ -6,30 +6,27 @@ import {
 	HttpErrorResponse,
 	HttpResponse,
 } from '@angular/common/http';
+
 import { ResponseCodeHandler } from '@helpers/response-code-handler/response-code-handler';
-import { Ministry } from '@interfaces/ministry';
-import { ExpenseReport } from '@interfaces/expense-report';
+import { Categories, Category } from '@interfaces/category';
 
 @Injectable({
 	providedIn: 'root',
 })
-export class ExpenseReportsService {
+export class CategoriesService {
 	constructor(private http: HttpClient) {}
 
-	submitReport(data: ExpenseReport): Observable<any> {
+	submitCategories(data: Category[]): Observable<any> {
 		const headers = { 'Content-Type': 'application/json' };
+		const categories = { Categories: data };
 		return this.http
-			.post<any>('/api/expenseReport', data, {
+			.post<any>('api/categories', categories, {
 				headers: headers,
 				observe: 'response',
 			})
 			.pipe(
 				map(ResponseCodeHandler.handleSuccessComplex),
-				catchError(ResponseCodeHandler.handleErrorComplex)
+				catchError(ResponseCodeHandler.handleError)
 			);
-	}
-
-	getMinistries(): Observable<Ministry[]> {
-		return this.http.get<Ministry[]>('/api/ministries');
 	}
 }

@@ -1,0 +1,37 @@
+<div>
+	<div>
+		On which category did you sepend money?
+		<div>
+			<form (submit)="submit()" name="categories">
+				<div *ngFor="let category of categories">
+					<span>
+						<label for="category">항목: </label>
+						<input
+							[(ngModel)]="category.category"
+							placeholder="항목"
+							name="category"
+						/>
+					</span>
+					<span>
+						<label for="amount">금액</label>
+						<input
+							[(ngModel)]="category.amount"
+							placeholder="금액"
+							name="amount"
+						/>
+					</span>
+					<span>
+						<label for="remarks">비고</label>
+						<input
+							[(ngModel)]="category.remarks"
+							placeholder="비고"
+							name="remarks"
+						/>
+					</span>
+				</div>
+			</form>
+			<button (click)="addRow()">Add Row</button>
+			<button (click)="submit()" type="submit">Submit</button>
+		</div>
+	</div>
+</div>

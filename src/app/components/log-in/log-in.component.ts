@@ -22,7 +22,6 @@ export class LogInComponent implements OnInit {
 	}
 
 	setMessage(responseCode: number): void {
-		console.log(responseCode);
 		if (responseCode == 200) {
 			this.router.navigate(['/secCode']);
 		} else if (responseCode == 422) {

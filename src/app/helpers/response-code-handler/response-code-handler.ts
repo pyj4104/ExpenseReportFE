@@ -10,6 +10,10 @@ export class ResponseCodeHandler {
 		return of(error.status);
 	}
 
+	public static handleSuccessComplex(res: HttpResponse<any>) {
+		return [true, res.body]
+	}
+
 	public static handleErrorComplex(error: HttpErrorResponse) {
 		return of([false, error.status]);
 	}
