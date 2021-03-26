@@ -28,6 +28,9 @@
 							name="remarks+{{ i }}"
 						/>
 					</span>
+					<span>
+						<button (click)="categories.splice(i, 1)">Romeve</button>
+					</span>
 				</div>
 			</form>
 			<button (click)="addRow()">Add Row</button>

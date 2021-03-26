@@ -56,6 +56,9 @@
 							name="breakdown+{{ i }}"
 						/>
 					</span>
+					<span>
+						<button (click)="detailedReports.splice(i, 1)">Romeve</button>
+					</span>
 				</div>
 			</form>
 			<button (click)="addRow()">Add Row</button>

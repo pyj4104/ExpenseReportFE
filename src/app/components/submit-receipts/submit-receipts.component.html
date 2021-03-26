@@ -5,8 +5,13 @@
 	<div>
 		<input type="file" (change)="onSelected($event)" />
 	</div>
-	<div *ngFor="let file of receipts">
-		<p>{{ file.name }}</p>
+	<div *ngFor="let file of receipts; let i = index">
+		<div>
+			{{ file.name }}
+			<span>
+				<button (click)="receipts.splice(i, 1)">Romeve</button>
+			</span>
+		</div>
 	</div>
 	<button (click)="submit()" type="submit">Submit</button>
 	<div *ngIf="message">
