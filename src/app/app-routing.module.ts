@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SubmitReceiptsComponent } from '@components/submit-receipts/submit-receipts.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -19,6 +20,8 @@ const routes: Routes = [
 	{ path: 'submitCategories', component: SubmitCategoriesComponent },
 	{ path: 'submitDetailedReport', component: SubmitDetailedReportComponent },
 	{ path: 'submitReceipts', component: SubmitReceiptsComponent },
+	{path: '404', component: NotFoundComponent },
+	{path: '**', redirectTo: '/404'}
 ];
 
 @NgModule({

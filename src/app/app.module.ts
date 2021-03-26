@@ -17,6 +17,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
 import { SubmitReceiptsComponent } from './components/submit-receipts/submit-receipts.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
 	declarations: [
@@ -29,6 +30,7 @@ import { SubmitReceiptsComponent } from './components/submit-receipts/submit-rec
 		SubmitCategoriesComponent,
 		SubmitDetailedReportComponent,
 		SubmitReceiptsComponent,
+		NotFoundComponent,
 	],
 	imports: [
 		BrowserModule,

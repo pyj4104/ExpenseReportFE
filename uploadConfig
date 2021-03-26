@@ -1,0 +1,4 @@
+#!/bin/bash
+cp ./nginxConfigFile.conf /opt/homebrew/Cellar/nginx/1.19.8/nginx.conf
+nginx -t -c nginx.conf
+nginx -c nginx.conf

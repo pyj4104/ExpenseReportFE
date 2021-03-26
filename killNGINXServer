@@ -1,0 +1,2 @@
+#!/bin/bash
+kill -QUIT $(cat ~/Desktop/Current/ExpenseReport/nginxServer/nginx.pid)
