@@ -2,7 +2,7 @@ import { of } from 'rxjs';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 export class ResponseCodeHandler {
-	public static success(res: HttpResponse<any>) {
+	public static handleSuccess(res: HttpResponse<any>) {
 		return res.status;
 	}
 
@@ -11,7 +11,7 @@ export class ResponseCodeHandler {
 	}
 
 	public static handleSuccessComplex(res: HttpResponse<any>) {
-		return [true, res.body]
+		return [true, res.body];
 	}
 
 	public static handleErrorComplex(error: HttpErrorResponse) {

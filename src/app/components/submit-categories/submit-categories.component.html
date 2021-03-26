@@ -3,29 +3,29 @@
 		On which category did you sepend money?
 		<div>
 			<form (submit)="submit()" name="categories">
-				<div *ngFor="let category of categories">
+				<div *ngFor="let category of categories; let i = index">
 					<span>
-						<label for="category">항목: </label>
+						<label for="category+{{ i }}">항목: </label>
 						<input
-							[(ngModel)]="category.category"
+							[(ngModel)]="category.categoryName"
 							placeholder="항목"
-							name="category"
+							name="category+{{ i }}"
 						/>
 					</span>
 					<span>
-						<label for="amount">금액</label>
+						<label for="amount+{{ i }}">금액</label>
 						<input
 							[(ngModel)]="category.amount"
 							placeholder="금액"
-							name="amount"
+							name="amount+{{ i }}"
 						/>
 					</span>
 					<span>
-						<label for="remarks">비고</label>
+						<label for="remarks+{{ i }}">비고</label>
 						<input
 							[(ngModel)]="category.remarks"
 							placeholder="비고"
-							name="remarks"
+							name="remarks+{{ i }}"
 						/>
 					</span>
 				</div>

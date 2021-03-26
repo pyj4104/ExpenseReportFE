@@ -1,0 +1,15 @@
+<div>
+	<div>
+		<p>Please submit the receipts</p>
+	</div>
+	<div>
+		<input type="file" (change)="onSelected($event)" />
+	</div>
+	<div *ngFor="let file of receipts">
+		<p>{{ file.name }}</p>
+	</div>
+	<button (click)="submit()" type="submit">Submit</button>
+	<div *ngIf="message">
+		<p>{{ message }}</p>
+	</div>
+</div>

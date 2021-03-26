@@ -1,0 +1,65 @@
+<div>
+	<div>
+		<p>Please specify the spendings</p>
+		<p></p>
+		<div>
+			<form (submit)="submit()" name="detailedReports">
+				<div *ngFor="let dr of detailedReports; let i = index">
+					<span>
+						<label for="cID+{{ i }}">Category: </label>
+						<select
+							[(ngModel)]="dr.categoryID"
+							placeholder="Select Category"
+							name="cID+{{ i }}"
+						>
+							<option hidden [ngValue]="null">
+								Choose a category
+							</option>
+							<option
+								*ngFor="let c of categories"
+								[ngValue]="c.id"
+							>
+								{{ c.categoryName }}
+							</option>
+						</select>
+					</span>
+					<span>
+						<mat-form-field appearance="fill">
+							<mat-label for="date+{{ i }}">쓴 날짜</mat-label>
+							<input
+								matInput
+								[(ngModel)]="dr.date"
+								[matDatepicker]="datePickerRef"
+								placeholder="Choose a date"
+								name="date+{{ i }}"
+							/>
+							<mat-datepicker-toggle
+								matSuffix
+								[for]="datePickerRef"
+							></mat-datepicker-toggle>
+							<mat-datepicker #datePickerRef></mat-datepicker>
+						</mat-form-field>
+					</span>
+					<span>
+						<label for="amount+{{ i }}">금액</label>
+						<input
+							[(ngModel)]="dr.amount"
+							placeholder="금액"
+							name="amount+{{ i }}"
+						/>
+					</span>
+					<span>
+						<label for="breakdown+{{ i }}">내역</label>
+						<input
+							[(ngModel)]="dr.breakdown"
+							placeholder="내역"
+							name="breakdown+{{ i }}"
+						/>
+					</span>
+				</div>
+			</form>
+			<button (click)="addRow()">Add Row</button>
+			<button (click)="submit()" type="submit">Submit</button>
+		</div>
+	</div>
+</div>

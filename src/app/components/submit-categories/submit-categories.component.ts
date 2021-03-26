@@ -21,6 +21,7 @@ export class SubmitCategoriesComponent implements OnInit {
 			this.formID = state.formID;
 		} catch (error) {
 			alert('Invalid access route. Please create a form first.');
+			this.router.navigate(['/reportExpenses']);
 		}
 	}
 
@@ -34,26 +35,29 @@ export class SubmitCategoriesComponent implements OnInit {
 		} else {
 			this.categoriesService
 				.submitCategories(this.categories)
-				.subscribe((responseCode) => this.setMessage(responseCode));
+				.subscribe((response) => {
+					this.setMessage(response);
+				});
 		}
 	}
 
 	addRow(): void {
 		if (this.categories.length < 5) {
-			let newRow = { formID: this.formID };
+			const newRow = { formID: this.formID };
 			this.categories.push(newRow);
 		} else {
 			alert('Max amount of categories reached.');
 		}
 	}
 
-	setMessage(responseCode: number): void {
-		if (responseCode == 200) {
+	setMessage(response: number): void {
+		console.log(response);
+		if (response[0]) {
 			const navigationExtras: NavigationExtras = {
 				state: { formID: this.formID },
 			};
 			this.router.navigate(['/submitDetailedReport'], navigationExtras);
-		} else if (responseCode == 422) {
+		} else if (response === 422) {
 			alert('One or more of the fields are invalid.');
 		}
 	}

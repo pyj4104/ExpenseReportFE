@@ -9,7 +9,7 @@
 	>
 		<option hidden [ngValue]="null">Choose a ministry</option>
 		<option *ngFor="let ministry of ministries" [ngValue]="ministry.id">
-			{{ ministry.ministry }}
+			{{ ministry.ministryName }}
 		</option>
 	</select>
 	<br />

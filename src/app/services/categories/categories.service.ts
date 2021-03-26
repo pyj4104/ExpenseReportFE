@@ -1,14 +1,10 @@
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import {
-	HttpClient,
-	HttpErrorResponse,
-	HttpResponse,
-} from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { ResponseCodeHandler } from '@helpers/response-code-handler/response-code-handler';
-import { Categories, Category } from '@interfaces/category';
+import { Category } from '@interfaces/category';
 
 @Injectable({
 	providedIn: 'root',
@@ -28,5 +24,10 @@ export class CategoriesService {
 				map(ResponseCodeHandler.handleSuccessComplex),
 				catchError(ResponseCodeHandler.handleError)
 			);
+	}
+
+	getCaegories(formID: number): Observable<Category[]> {
+		const params = new HttpParams().set('formID', String(formID));
+		return this.http.get<Category[]>('api/categories', { params });
 	}
 }

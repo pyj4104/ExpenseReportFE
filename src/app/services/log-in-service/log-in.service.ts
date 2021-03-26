@@ -1,11 +1,7 @@
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import {
-	HttpClient,
-	HttpErrorResponse,
-	HttpResponse,
-} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ResponseCodeHandler } from '@helpers/response-code-handler/response-code-handler';
 
 @Injectable({
@@ -23,7 +19,7 @@ export class LogInService {
 				observe: 'response',
 			})
 			.pipe(
-				map(ResponseCodeHandler.success),
+				map(ResponseCodeHandler.handleSuccess),
 				catchError(ResponseCodeHandler.handleError)
 			);
 	}
@@ -35,7 +31,7 @@ export class LogInService {
 				observe: 'response',
 			})
 			.pipe(
-				map(ResponseCodeHandler.success),
+				map(ResponseCodeHandler.handleSuccess),
 				catchError(ResponseCodeHandler.handleError)
 			);
 	}

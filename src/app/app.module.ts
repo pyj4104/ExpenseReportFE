@@ -11,7 +11,12 @@ import { SecurityCodeComponent } from './components/security-code/security-code.
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { ReportExpensesComponent } from './components/report-expenses/report-expenses.component';
 import { SubmitCategoriesComponent } from './components/submit-categories/submit-categories.component';
-import { SubmitDetailedReportComponent } from './components/submit-detailed-report/submit-detailed-report.component';
+import { SubmitDetailedReportComponent } from './components/submit-detailed-reports/submit-detailed-report.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { DatePipe } from '@angular/common';
+import { SubmitReceiptsComponent } from './components/submit-receipts/submit-receipts.component';
 
 @NgModule({
 	declarations: [
@@ -23,9 +28,18 @@ import { SubmitDetailedReportComponent } from './components/submit-detailed-repo
 		ReportExpensesComponent,
 		SubmitCategoriesComponent,
 		SubmitDetailedReportComponent,
+		SubmitReceiptsComponent,
 	],
-	imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-	providers: [],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		FormsModule,
+		HttpClientModule,
+		BrowserAnimationsModule,
+		MatDatepickerModule,
+		MatNativeDateModule,
+	],
+	providers: [MatDatepickerModule, MatNativeDateModule, DatePipe],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

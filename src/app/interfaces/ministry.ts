@@ -1,4 +1,4 @@
 export interface Ministry {
 	id: number;
-	ministry: string;
+	ministryName: string;
 }

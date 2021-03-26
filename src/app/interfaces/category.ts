@@ -1,6 +1,6 @@
 export interface Category {
 	formID?: number;
-	category?: string;
+	categoryName?: string;
 	amount?: string;
 	remarks?: string;
 }

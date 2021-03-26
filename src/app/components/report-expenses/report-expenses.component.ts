@@ -22,6 +22,7 @@ export class ReportExpensesComponent implements OnInit {
 	ngOnInit(): void {
 		this.expenseReport = { ministryID: null };
 		this.expenseReportsService.getMinistries().subscribe((ministries) => {
+			console.log(ministries);
 			this.ministries = ministries;
 		});
 	}
